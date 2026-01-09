@@ -31,8 +31,33 @@ func InsertionSort(s []int) {
 	}
 }
 
+// Bubble Sort
+// Cara kerjanya adalah dengan membandingkan dua elemen yang bersebelahan,
+// lalu menukarnya jika urutannya salah.
+// Proses ini diulang terus sampai data benar-benar terurut.
+// Disebut bubble karena nilai terbesar “menggelembung” ke akhir array, seperti gelembung udara di air.
+// Idenya adalah:
+// 1. Bandingkan elemen ke-0 dan ke-1
+// 2. Jika elemen kiri > kanan → tukar
+// 3. Lanjutkan ke pasangan berikutnya
+// 4. Setelah satu putaran, elemen terbesar pasti ada di posisi terakhir
+// 5. Ulangi proses untuk sisa elemen (tanpa menyentuh elemen yang sudah benar)
+func BubbleSort(arr []int) {
+	n := len(arr)
+	for i := 0; i < n-1; i++ {
+		for j := 0; j < n-i-1; j++ {
+			if arr[j] > arr[j+1] {
+				arr[j], arr[j+1] = arr[j+1], arr[j]
+			}
+		}
+	}
+}
+
 func main() {
 	arr := []int{2, 8, 1, 12, 3, 11, 10, 6, 4, 9, 5, 7}
-	InsertionSort(arr)
+	// InsertionSort(arr)
+	// fmt.Println(arr)
+
+	BubbleSort(arr)
 	fmt.Println(arr)
 }
